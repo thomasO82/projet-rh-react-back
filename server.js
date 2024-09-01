@@ -23,7 +23,12 @@ app.listen(3010, err =>{
 })
 
 app.get('/easter', (req,res)=>{
-    res.send("REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou REACT m'a rendu fou")
+    let str = ""
+    for (let i = 0; i < 1000; i++) {
+        str+= "REACT m'a rendu fou " 
+        
+    }
+    res.send(str)
 })
 
 
