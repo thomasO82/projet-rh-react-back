@@ -14,7 +14,7 @@ app.use(companyRouter)
 app.use(employeeRouter)
 
 
-app.listen(3009, err =>{
+app.listen(3010, err =>{
     if (err) {
         console.log(err);
     }else{
