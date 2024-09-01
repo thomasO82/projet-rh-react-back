@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const employeeSchema = new mongoose.Schema({
     img: {
         type: String,
-        required: [true, "image requise"],
+        
     },
     name: {
         type: String,

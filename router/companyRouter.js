@@ -20,7 +20,9 @@ companyRouter.post('/register', async (req, res) => {
 companyRouter.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
-        const company = await companyModel.findOne({ email },{password: 0});
+   
+        
+        const company = await companyModel.findOne({ email }).populate('employees');
         if (!company) {
             return res.status(401).json({ error: "Email incorrect" });
         }
@@ -39,7 +41,7 @@ companyRouter.post('/login', async (req, res) => {
         res.json({
             message: "Connexion réussie",
             token,
-            company: company
+            company: {_id, name, employees} = company
         });
 
     } catch (error) {
@@ -54,6 +56,7 @@ companyRouter.post('/verifytoken', verifyToken, (req, res) => {
         token: req.token,
     });
 });
+
 
 companyRouter.get('/company', verifyToken, async(req, res) => {
    try {
